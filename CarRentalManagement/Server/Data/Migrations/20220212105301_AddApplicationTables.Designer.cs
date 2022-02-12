@@ -4,14 +4,16 @@ using CarRentalManagement.Server.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace CarRentalManagement.Server.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20220212105301_AddApplicationTables")]
+    partial class AddApplicationTables
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -155,26 +157,6 @@ namespace CarRentalManagement.Server.Data.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Colours");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = 1,
-                            Createdby = "System",
-                            DateCreated = new DateTime(2022, 2, 12, 19, 57, 53, 885, DateTimeKind.Local).AddTicks(8165),
-                            DateUpdated = new DateTime(2022, 2, 12, 19, 57, 53, 886, DateTimeKind.Local).AddTicks(7217),
-                            Name = "Black",
-                            UpdateBy = "System"
-                        },
-                        new
-                        {
-                            Id = 2,
-                            Createdby = "System",
-                            DateCreated = new DateTime(2022, 2, 12, 19, 57, 53, 886, DateTimeKind.Local).AddTicks(8064),
-                            DateUpdated = new DateTime(2022, 2, 12, 19, 57, 53, 886, DateTimeKind.Local).AddTicks(8068),
-                            Name = "Blue",
-                            UpdateBy = "System"
-                        });
                 });
 
             modelBuilder.Entity("CarRentalManagement.Shared.Domin.Customer", b =>
